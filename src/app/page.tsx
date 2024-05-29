@@ -1,12 +1,12 @@
 "use client";
 
 import React from 'react';
-import Formulario from '../components/Formulario';
+import Dashboard from '@/components/Dashboard';
 
 export default function Page() {
   return (
     <div>
-      <Formulario />
+      <Dashboard />
     </div>
   );
 }

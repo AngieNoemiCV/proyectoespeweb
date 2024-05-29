@@ -5,18 +5,18 @@ interface FormState {
   nivel: string;
   desafio: string;
   tema: string;
-  fecha: string;
+  fecha_creacion: string;
   descripcion: string;
 }
 
 // Definimos los temas disponibles para cada nivel
 const temasPorNivel: { [key: string]: string[] } = {
-  '1': ['Figuras', 'Tema 2 del Nivel 1', 'Tema 3 del Nivel 1'],
-  '2': ['Tema 1 del Nivel 2', 'Tema 2 del Nivel 2', 'Tema 3 del Nivel 2'],
-  '3': ['Tema 1 del Nivel 3', 'Tema 2 del Nivel 3', 'Tema 3 del Nivel 3'],
-  '4': ['Tema 1 del Nivel 4', 'Tema 2 del Nivel 4', 'Tema 3 del Nivel 4'],
-  '5': ['Tema 1 del Nivel 5', 'Tema 2 del Nivel 5', 'Tema 3 del Nivel 5'],
-  '6': ['Tema 1 del Nivel 6', 'Tema 2 del Nivel 6', 'Tema 3 del Nivel 6'],
+  '1': ['Números y Conteo', 'Sumas y restas básicas', 'Formas y patrones'],
+  '2': ['Sumas y Restas con Llevadas', 'Introducción a la Multiplicación', 'Medición'],
+  '3': ['Multiplicación y División Básicas', 'Fracciones Simples', 'Conceptos de Tiempo'],
+  '4': ['Operaciones con Múltiples Dígitos', 'Fracciones y Decimales', 'Geometría Básica'],
+  '5': ['Fracciones y Decimales', 'Porcentajes', 'Estadística'],
+  '6': ['Álgebra básica', 'Proporciones y Razones', 'Probabilidad y Gráficos'],
 };
 
 export default function Formulario() {
@@ -24,21 +24,22 @@ export default function Formulario() {
     nivel: '',
     desafio: '',
     tema: '',
-    fecha: '',
+    fecha_creacion: '',
     descripcion: ''
   });
 
   const [temasDisponibles, setTemasDisponibles] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    // Si el campo cambiado es el nivel, actualizamos los temas disponibles
     if (name === 'nivel') {
       setForm({
         ...form,
-        tema: '', // Reiniciamos el tema seleccionado
-        [name]: value
+        nivel: value,
+        tema: '' // Reiniciamos el tema seleccionado
       });
       setTemasDisponibles(temasPorNivel[value]);
     } else {
@@ -49,20 +50,45 @@ export default function Formulario() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log('Formulario enviado:', form);
-    // Muestra la alerta
-    alert('Se guardó correctamente ✅');
-    // Limpiar el formulario
-    setForm({
-      nivel: '',
-      desafio: '',
-      tema: '',
-      fecha: '',
-      descripcion: ''
-    });
-    setTemasDisponibles([]);
+    setIsLoading(true);
+    setError(null);
+
+    console.log(JSON.stringify(form));
+
+    try {
+      const response = await fetch('http://localhost:3100/foros', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error en la solicitud');
+      }
+
+      const result = await response.json();
+      console.log('Formulario enviado:', result);
+
+      alert('Se guardó correctamente ✅');
+
+      setForm({
+        nivel: '',
+        desafio: '',
+        tema: '',
+        fecha_creacion: '',
+        descripcion: ''
+      });
+      setTemasDisponibles([]);
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -121,8 +147,8 @@ export default function Formulario() {
           <input
             type="date"
             id="fecha"
-            name="fecha"
-            value={form.fecha}
+            name="fecha_creacion"
+            value={form.fecha_creacion}
             onChange={handleChange}
             required
             className={styles.input}
@@ -139,7 +165,10 @@ export default function Formulario() {
             className={styles.textarea}
           ></textarea>
         </div>
-        <button type="submit" className={styles.button}>Registrar</button>
+        <button type="submit" className={styles.button} disabled={isLoading}>
+          {isLoading ? 'Enviando...' : 'Registrar'}
+        </button>
+        {error && <p className={styles.error}>{error}</p>}
       </form>
       <a href="/Dashboard" className={styles.link}>Regresar</a>
     </div>
