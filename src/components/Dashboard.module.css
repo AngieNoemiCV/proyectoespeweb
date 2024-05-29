@@ -1,42 +1,78 @@
 .container {
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .loading, .error {
-    font-size: 1.2em;
-    margin: 20px 0;
-  }
-  
-  .list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .listItem {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px 0;
-    text-align: left;
-  }
-  
-  .listItemTitle {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  .link {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #007BFF;
-  }
-  
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.title {
+  color: #ff4500;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  color: #ffa500;
+  font-size: 2rem;
+}
+
+.error {
+  text-align: center;
+  color: #ff0000;
+  font-size: 1.5rem;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listItem {
+  background-color: #ffebcd;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #ffa500;
+}
+
+.desafioTextarea {
+  width: 97%; /* Ancho reducido */
+  height: 10px;
+  border: 1px solid #ffa500;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: blue; /* Color de texto azul */
+}
+
+.descripcionTextarea {
+  width: 97%; 
+  height: 80px;
+  border: 1px solid #ffa500;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #008000;
+  text-decoration: none;
+  background-color: #adff2f;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.link:hover {
+  background-color: #7cfc00;
+}

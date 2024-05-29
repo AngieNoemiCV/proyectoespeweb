@@ -47,17 +47,26 @@ export default function Dashboard() {
         <ul className={styles.list}>
           {data.map((item, index) => (
             <li key={index} className={styles.listItem}>
-              <h2 className={styles.listItemTitle}>Desafío: {item.desafio}</h2>
+              <label><strong>Desafío:</strong></label>
+              <textarea
+                value={item.desafio}
+                readOnly
+                className={styles.desafioTextarea} 
+              />
               <p><strong>Nivel:</strong> {item.nivel}</p>
               <p><strong>Tema:</strong> {item.tema}</p>
               <p><strong>Fecha de Creación:</strong> {item.fecha_creacion}</p>
-              <p><strong>Descripción:</strong> {item.descripcion}</p>
+              <label><strong>Descripción:</strong></label>
+              <textarea
+                value={item.descripcion}
+                readOnly
+                className={styles.descripcionTextarea} 
+              />
             </li>
           ))}
         </ul>
       )}
-      <Link  href="/formul" className={styles.link}>Crear Nuevo Desafío</Link>
+      <Link href="/formul" className={styles.link}>Crear Nuevo Desafío</Link>
     </div>
   );
 }
-
