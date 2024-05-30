@@ -9,6 +9,7 @@ interface FormState {
   tema: string;
   fecha_creacion: string;
   descripcion: string;
+  nombre_usuario: string; // Nuevo campo
 }
 
 // Definimos los temas disponibles para cada nivel
@@ -27,7 +28,8 @@ export default function Formulario() {
     desafio: '',
     tema: '',
     fecha_creacion: '',
-    descripcion: ''
+    descripcion: '',
+    nombre_usuario: '' // Nuevo campo
   });
 
   const [temasDisponibles, setTemasDisponibles] = useState<string[]>([]);
@@ -82,7 +84,8 @@ export default function Formulario() {
         desafio: '',
         tema: '',
         fecha_creacion: '',
-        descripcion: ''
+        descripcion: '',
+        nombre_usuario: '' // Restablecer el nuevo campo
       });
       setTemasDisponibles([]);
     } catch (error) {
@@ -100,6 +103,18 @@ export default function Formulario() {
       <img src='/numeros.jpg' alt='Numeros' className={styles.logo}/>
       <h1 className={styles.title}>Foro</h1>
       <form onSubmit={handleSubmit}>
+      <div className={styles.formGroup}>
+          <label htmlFor="nombre_usuario">Nombre de usuario:</label>
+          <input
+            type="text"
+            id="nombre_usuario"
+            name="nombre_usuario"
+            value={form.nombre_usuario}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
+        </div>
         <div className={styles.formGroup}>
           <label htmlFor="nivel">Nivel:</label>
           <select

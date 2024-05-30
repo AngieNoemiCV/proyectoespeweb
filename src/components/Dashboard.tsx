@@ -8,6 +8,7 @@ interface FormData {
   tema: string;
   fecha_creacion: string;
   descripcion: string;
+  nombre_usuario: string; // Nuevo campo
 }
 
 export default function Dashboard() {
@@ -38,7 +39,7 @@ export default function Dashboard() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Dashboard</h1>
+      <h1 className={styles.title}>PUBLICACIONES</h1>
       {isLoading ? (
         <p className={styles.loading}>Cargando...</p>
       ) : error ? (
@@ -47,6 +48,7 @@ export default function Dashboard() {
         <ul className={styles.list}>
           {data.map((item, index) => (
             <li key={index} className={styles.listItem}>
+              <p><strong>Nombre de usuario:</strong> {item.nombre_usuario}</p>
               <label><strong>Desafío:</strong></label>
               <textarea
                 value={item.desafio}
