@@ -69,6 +69,127 @@ Tener instalados:
 
 ## Descripción del proyecto (estructura y uso del proyecto)
 
+### El proyecto está organizado de la siguiente manera:
+
+1. Directorios y Archivos Principales
+
+**public/:** Contiene imágenes y otros archivos públicos accesibles desde la raíz del servidor web.
+
+      figuras.jpg
+      figuras.png
+      numeros.jpg
+      next.svg
+      vercel.svg
+    
+**src/:** Contiene el código fuente del proyecto.
+
+   app/: Directrices de la aplicación.
+
+      favicon.ico
+      globals.css
+      layout.tsx
+      page.tsx
+
+   components/: Contiene los componentes reutilizables de la aplicación.
+
+      Dashboard.tsx
+      Formulario.tsx
+      Dashboard.module.css
+      Formulario.module.css
+
+   formul/: Contiene la página de formulario.
+
+      page.tsx
+
+**.eslintc.json:** Archivo de configuración para ESLint.
+
+**.gitignore:** Define los archivos y directorios que Git debe ignorar.
+
+**next.config.js:** Configuración de Next.js.
+
+**package.json:** Manejo de dependencias y scripts del proyecto.
+
+**package-lock.json:** Versión bloqueada de las dependencias.
+
+**postcss.config.js:** Configuración de PostCSS.
+
+2. Componentes
+
+**Formulario.tsx**
+
+Este componente renderiza un formulario para crear nuevos desafíos. Se utiliza useState para manejar el estado del formulario y useEffect para cargar los temas disponibles según el nivel seleccionado. Aquí está la estructura del estado del formulario:
+
+      interface FormState {
+      nivel: string;
+      desafio: string;
+      tema: string;
+      fecha_creacion: string;
+      descripcion: string;
+      nombre_usuario: string; // Nuevo campo
+      }
+
+El formulario incluye campos para:
+
+      Nivel
+      Tema
+      Desafío
+      Fecha de creación
+      Descripción
+      Nombre de usuario
+
+El componente también maneja el envío del formulario mediante una petición POST al servidor local.
+
+**Dashboard.tsx**
+
+Este componente muestra una lista de desafíos cargados desde el servidor. Utiliza useState para manejar el estado de los datos y useEffect para realizar una petición GET al cargar el componente. Cada desafío en la lista muestra los siguientes campos:
+
+      Nombre de usuario
+      Desafío
+      Nivel
+      Tema
+      Fecha de creación
+      Descripción
+
+3. Estilos
+
+**Formulario.module.css:** Contiene los estilos específicos para el componente de formulario.
+**Dashboard.module.css:** Contiene los estilos específicos para el componente de dashboard.
+**globals.css:** Estilos globales de la aplicación.
+
+4. Dependencias y Scripts
+
+El archivo package.json maneja las dependencias del proyecto y scripts necesarios para ejecutar la aplicación. Las principales dependencias son React y Next.js.
+
+### Uso del proyecto
+
+1. Instalación de Dependencias
+
+Para instalar las dependencias del proyecto, se ejecuta el siguiente comando:
+
+      npm install
+
+2. Ejecución de la Aplicación
+
+Para ejecutar la aplicación en un entorno de desarrollo, se utiliza el siguiente comando:
+
+      npm run dev
+
+3. Navegación
+
+La página principal carga el componente Dashboard.
+
+Se puede acceder al formulario para crear un nuevo desafío a través de un enlace en el dashboard.
+
+### Descripción de las Funcionalidades
+
+***Formulario de Creación de publicaciones para el foro***
+
+Permite a los usuarios crear nuevas publicaciones rellenando un formulario con varios campos, incluyendo el nivel y el tema que se actualizan dinámicamente según la selección del nivel.
+
+***Dashboard de publicaciones ya generadas***
+
+Muestra una lista de publicaciones creados, permitiendo a los usuarios ver detalles como el nombre de otro usuario que haya publicado, nivel, tema, fecha de creación y descripción de como se sintio durante el desafío.
+
 
 ## Prototipos de la vista y cómo utilizarlas (tipo manual)
 #### Form:
@@ -84,6 +205,28 @@ En esta pantalla se mostrará las publicaciones del foro, se vera reflejado el n
 ![alt text](image-1.png)
 
 ## Descripción de las pruebas y cómo ejecutarlas.
+
+1. Explicación de los Test
+
+***Dashboard Test:***
+
+Recupera y muestra los datos correctamente: Este test verifica que los datos se recuperan del endpoint y se muestran correctamente en el componente Dashboard.
+
+***Formulario Test:***
+
+Envía los datos correctamente al servicio web: Este test simula la entrada de datos en el formulario y el evento de envío, asegurándose de que los datos se envían correctamente al endpoint.
+Renderiza el formulario con los datos esperados: Este test verifica que los campos del formulario se renderizan correctamente.
+
+2. Comando para ejecutar testing
+
+         npm run test
+![alt text](image-3.png)
+
+
+    > **IMPORTANTE**
+    > En la linea 80 del componente Formulario.tsx se debe comentar, ya que al ser un alter al momento del test mandara un error.
+    > Una vez ejecutada la prueba, se recomienda descomentar para que en la ejecucion del comando npm run dev, aparezca el mesaje.
+
 ## URL de despliegue en Vercel.
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 

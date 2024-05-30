@@ -77,7 +77,7 @@ export default function Formulario() {
       const result = await response.json();
       console.log('Formulario enviado:', result);
 
-      alert('Se guardó correctamente ✅');
+     alert('Se guardó correctamente ✅');
 
       setForm({
         nivel: '',
