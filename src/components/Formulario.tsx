@@ -62,7 +62,7 @@ export default function Formulario() {
     console.log(JSON.stringify(form));
 
     try {
-      const response = await fetch('https://vercel.com/angi-noemis-projects/proyecto-final', {
+      const response = await fetch('https://proyecto-final-tau-nine.vercel.app/foros', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

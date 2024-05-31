@@ -21,7 +21,7 @@ export default function Dashboard() {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('https://vercel.com/angi-noemis-projects/proyecto-final');
+        const response = await fetch('https://proyecto-final-tau-nine.vercel.app/foros');
         if (!response.ok) {
           throw new Error('Error en la solicitud');
         }

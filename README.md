@@ -228,10 +228,8 @@ Renderiza el formulario con los datos esperados: Este test verifica que los camp
     > Una vez ejecutada la prueba, se recomienda descomentar para que en la ejecucion del comando npm run dev, aparezca el mesaje.
 
 ## URL de despliegue en Vercel.
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+ [Vercel Platform](https://proyectoespeweb.vercel.app/) 
 
 ## Repositorios
 
