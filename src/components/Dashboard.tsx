@@ -21,7 +21,7 @@ export default function Dashboard() {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('http://localhost:3100/foros');
+        const response = await fetch('https://vercel.com/angi-noemis-projects/proyecto-final');
         if (!response.ok) {
           throw new Error('Error en la solicitud');
         }
