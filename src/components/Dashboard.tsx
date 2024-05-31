@@ -21,7 +21,7 @@ export default function Dashboard() {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('http://localhost:3100/foros');
+        const response = await fetch('https://proyecto-final-tau-nine.vercel.app/');
         if (!response.ok) {
           throw new Error('Error en la solicitud');
         }
