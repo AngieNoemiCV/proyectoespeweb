@@ -1,4 +1,15 @@
 # Proyecto
+            TECNOLÓGICO NACIONAL DE MÉXICO 
+            INSTITUTO TECNOLÓGICO DE COLIMA 
+         Ingeniería en Sistemas Computacionales 
+         Periodo: Enero – Junio 2024 
+         Materia: Aplicaciones Web Modernas 
+         Docente: Patricia Elizabeth Figueroa Millan 
+         Estudiante: Angie Noemi Celestino Valencia-20460159
+         
+         Villa de Álvarez, Colima; 30 de Mayo del 2024
+
+
 En esta actividad  objetivo es organizar la base de datos de nuestro proyecto, en mi caso un sitio web, de desafios matematicos para niños de 6 a 12 años de edad. 
 
 En este readme esta redactado todo lo que necesitamos para iniciar y desarrollar la actividad.
@@ -206,6 +217,8 @@ En esta pantalla se mostrará las publicaciones del foro, se vera reflejado el n
 
 ## Descripción de las pruebas y cómo ejecutarlas.
 
+
+
 1. Explicación de los Test
 
 ***Dashboard Test:***
@@ -222,14 +235,12 @@ Renderiza el formulario con los datos esperados: Este test verifica que los camp
          npm run test
 ![alt text](image-3.png)
 
+[Video de referencia](https://youtu.be/u5A7GnQEKbg?si=thBiQc8Bbmt7TCUZ)
+
 
     > **IMPORTANTE**
     > En la linea 80 del componente Formulario.tsx se debe comentar, ya que al ser un alter al momento del test mandara un error.
     > Una vez ejecutada la prueba, se recomienda descomentar para que en la ejecucion del comando npm run dev, aparezca el mesaje.
-
-## URL de despliegue en Vercel.
-
- [Vercel Platform](https://proyectoespeweb.vercel.app/) 
 
 ## Repositorios
 

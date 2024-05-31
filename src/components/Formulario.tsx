@@ -99,8 +99,6 @@ export default function Formulario() {
   return (
     <div className={styles.container}>
       <img src='/numeros.jpg' alt='Numeros' className={styles.logo}/>
-      <img src='/figuras.jpg' alt='Figuras' className={styles.logo}/>
-      <img src='/numeros.jpg' alt='Numeros' className={styles.logo}/>
       <h1 className={styles.title}>Foro</h1>
       <form onSubmit={handleSubmit}>
       <div className={styles.formGroup}>

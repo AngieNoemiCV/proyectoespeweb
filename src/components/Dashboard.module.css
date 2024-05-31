@@ -3,26 +3,28 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: auto;
 }
 
 .title {
   color: #ff4500;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
 .loading {
   text-align: center;
   color: #ffa500;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .error {
   text-align: center;
   color: #ff0000;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .list {
@@ -36,6 +38,11 @@
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #ffa500;
+  transition: transform 0.3s;
+}
+
+.listItem:hover {
+  transform: scale(1.02);
 }
 
 .desafioTextarea {
@@ -51,8 +58,7 @@
 }
 
 .descripcionTextarea {
-  width: 97%; 
-  height: 80px;
+  width: 97%; /* Ajuste del ancho al 100% */
   border: 1px solid #ffa500;
   border-radius: 10px;
   padding: 10px;
@@ -61,18 +67,66 @@
   margin-bottom: 10px;
 }
 
+
+.descripcionTextarea {
+  height: 100px;
+}
+
 .link {
   display: block;
   text-align: center;
   margin-top: 20px;
   font-size: 1.5rem;
-  color: #008000;
+  color: #ffffff;
   text-decoration: none;
-  background-color: #adff2f;
+  background-color: #32cd32;
   padding: 10px;
   border-radius: 10px;
+  transition: background-color 0.3s;
 }
 
 .link:hover {
-  background-color: #7cfc00;
+  background-color: #228b22;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .loading {
+    font-size: 1.2rem;
+  }
+
+  .error {
+    font-size: 1rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .loading {
+    font-size: 1rem;
+  }
+
+  .error {
+    font-size: 0.9rem;
+  }
+
+  .link {
+    font-size: 1rem;
+    padding: 8px;
+  }
 }
