@@ -28,7 +28,7 @@ describe('Formulario', () => {
     fireEvent.click(screen.getByText(/Registrar/i));
 
     await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1));
-    expect(global.fetch).toHaveBeenCalledWith('https://proyecto-final-tau-nine.vercel.app/foros', expect.objectContaining({
+    expect(global.fetch).toHaveBeenCalledWith('http://localhost:3100/foros', expect.objectContaining({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
