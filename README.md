@@ -116,6 +116,12 @@ Tener instalados:
 
 **.gitignore:** Define los archivos y directorios que Git debe ignorar.
 
+**image.png:** Imagenes que son utilizadas en el README.
+
+**jest.config.ts:** Configura Jest para una aplicación Next.js, asegurándose de que Jest pueda manejar archivos TypeScript, simular un entorno de navegador, y utilizar las configuraciones y variables de entorno de Next.js.
+
+**jest.setup.ts:** Se utiliza para ejecutar configuraciones globales de Jest antes de que las pruebas se ejecuten. La línea import '@testing-library/jest-dom' en este archivo tiene un propósito específico..
+
 **next.config.js:** Configuración de Next.js.
 
 **package.json:** Manejo de dependencias y scripts del proyecto.
@@ -213,13 +219,19 @@ Estará un botón de agregar y otro para regresar al dashboard donde estaran ref
 #### Dashboard:
 En esta pantalla se mostrará las publicaciones del foro, se vera reflejado el nombre del usuario, y toda la informacion antes registrada en el formulario.
 
-![alt text](image-1.png)
+![alt text](image-4.png)
 
 ## Descripción de las pruebas y cómo ejecutarlas.
 
+1. Instañar las dependencias 
 
+         npm install @testing-library/react
+         npm install @types/jest
+         npm install @testing-library/jest-dom
+         npm i ts-jest  
+         npm i ts-node -D  
 
-1. Explicación de los Test
+2. Explicación de los Test
 
 ***Dashboard Test:***
 
@@ -230,9 +242,10 @@ Recupera y muestra los datos correctamente: Este test verifica que los datos se 
 Envía los datos correctamente al servicio web: Este test simula la entrada de datos en el formulario y el evento de envío, asegurándose de que los datos se envían correctamente al endpoint.
 Renderiza el formulario con los datos esperados: Este test verifica que los campos del formulario se renderizan correctamente.
 
-2. Comando para ejecutar testing
+3. Comando para ejecutar testing
 
          npm run test
+
 ![alt text](image-3.png)
 
 [Video de referencia](https://youtu.be/u5A7GnQEKbg?si=thBiQc8Bbmt7TCUZ)
